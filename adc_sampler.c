@@ -34,16 +34,16 @@ channel ADC without need for any input to initiate sampling.
 #include <math.h>
 #include <time.h>
 /////// USER SHOULD MAKE SURE THESE DEFINES CORRESPOND TO THEIR SETUP ///////
-#define ADCS 5      // Number of connected MCP3201.
+#define ADCS 3      // Number of connected MCP3201.
 
 #define OUTPUT_DATA argv[2] // path and filename to dump buffered ADC data
 
 /* RPi PIN ASSIGNMENTS */
-#define MISO1 21    // ADC 1 MISO (GPIO pin number)
-#define MISO2 22    // ADC 2 MISO (GPIO pin number)
-#define MISO3 23    // ADC 3 MISO (GPIO pin number)
-#define MISO4 24    // ADC 4 MISO (GPIO pin number)
-#define MISO5 25    // ADC 5 MISO (GPIO pin number)
+#define MISO1 25    // ADC 1 MISO (GPIO pin number)
+#define MISO2 26    // ADC 2 MISO (GPIO pin number)
+#define MISO3 27    // ADC 3 MISO (GPIO pin number)
+//#define MISO4 24    // ADC 4 MISO (GPIO pin number)
+//#define MISO5 25    // ADC 5 MISO (GPIO pin number)
 
 #define MOSI 10     // GPIO for SPI MOSI (GPIO 10 aka SPI_MOSI). MOSI not in use here due to single ch. ADCs, but must be defined anyway.
 #define SPI_SS 15   // GPIO for slave select (GPIO 15).
@@ -60,7 +60,7 @@ channel ADC without need for any input to initiate sampling.
 
 #define DEFAULT_NUM_SAMPLES 31250 // Default number of samples for printing in the example. Should give 1sec of data at Tp=32us.
 
-int MISO[ADCS]={MISO1, MISO2, MISO3, MISO4, MISO5}; // Must be updated if you change number of ADCs/MISOs above
+int MISO[ADCS]={MISO1, MISO2, MISO3}; // Must be updated if you change number of ADCs/MISOs above
 /////// END USER SHOULD MAKE SURE THESE DEFINES CORRESPOND TO THEIR SETUP ///////
 
 /**
@@ -259,4 +259,5 @@ int main(int argc, char *argv[])
     free(val);
 
     return 0;
+
 }
