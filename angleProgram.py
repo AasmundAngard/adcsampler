@@ -23,7 +23,7 @@ while True:
     tempName = "measure"+angleToTest+".bin"
     if os.path.isfile(tempName):
         for i in range(10):
-            tempName = "measure"+angleToTest+""+i+".bin"
+            tempName = "measure"+angleToTest+"_"+i+".bin"
             if not (os.path.isfile(tempName)):
                 toFileName = tempName
                 break
