@@ -6,7 +6,7 @@ def findTheta(toFileName):
 
     
     skipSpike = 100 
-    numSamples = 31250
+    numSamples = 31150
     # numSamples = 100
     resolution = 4096
     max_voltage = 3.3
