@@ -46,8 +46,8 @@ channel ADC without need for any input to initiate sampling.
 //#define MISO5 25    // ADC 5 MISO (GPIO pin number)
 
 #define MOSI 10     // GPIO for SPI MOSI (GPIO 10 aka SPI_MOSI). MOSI not in use here due to single ch. ADCs, but must be defined anyway.
-#define SPI_SS 15   // GPIO for slave select (GPIO 15).
-#define CLK 11      // GPIO for SPI clock (GPIO 16).
+#define SPI_SS 24   // GPIO for slave select (GPIO 15).
+#define CLK 4      // GPIO for SPI clock (GPIO 16).
 /* END RPi PIN ASSIGNMENTS */
 
 #define BITS 12            // Bits per sample.
