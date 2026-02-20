@@ -1,5 +1,6 @@
 import numpy as np
 from utilities.raspi_import import raspi_import
+import scipy.signal as sc
 
 def findTheta(toFileName):
     # Les fra fil, og beregn theta
@@ -25,9 +26,9 @@ def findTheta(toFileName):
     c3 = (data[skipSpike:skipSpike+numSamples,2]-c3_avg)/resolution*max_voltage
 
     # Beregn korrelasjon
-    korr21 = np.correlate(c2,c1,mode="full")
-    korr31 = np.correlate(c3,c1,mode="full")
-    korr32 = np.correlate(c3,c2,mode="full")
+    korr21 = sc.correlate(c2,c1,mode="full")
+    korr31 = sc.correlate(c3,c1,mode="full")
+    korr32 = sc.correlate(c3,c2,mode="full")
 
     # Høyeste peak sier tiden fra y til x (korrxy)
     delay21 = np.argmax(korr21) - numSamples + 1
