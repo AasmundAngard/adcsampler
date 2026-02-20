@@ -36,7 +36,7 @@ while True:
         break
 
     # Kjør adc_sampler med 1 sekund sampling, og skriv til filnavn. Blokkerer til ferdig kjørt
-    subprocess.run(["./adc_sampler", 31250, toFileName], check=True)
+    subprocess.run(["./adc_sampler", "31250", toFileName], check=True)
 
 
     theta = findTheta(toFileName)

@@ -1,5 +1,5 @@
 import numpy as np
-from raspi_import import raspi_import
+from utilities.raspi_import import raspi_import
 
 def findTheta(toFileName):
     # Les fra fil, og beregn theta
