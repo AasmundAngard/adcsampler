@@ -20,10 +20,10 @@ while True:
 
     # Finn ubrukt filnavn for målinger
     toFileName =None
-    tempName = "measure"+angleToTest+".bin"
+    tempName = "measure"+str(angleToTest)+".bin"
     if os.path.isfile(tempName):
         for i in range(10):
-            tempName = "measure"+angleToTest+"_"+i+".bin"
+            tempName = "measure"+str(angleToTest)+"_"+str(i)+".bin"
             if not (os.path.isfile(tempName)):
                 toFileName = tempName
                 break
