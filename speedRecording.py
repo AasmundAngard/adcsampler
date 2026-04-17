@@ -53,8 +53,8 @@ while True:
     # Kjør adc_sampler med 10 sekund sampling, og skriv til filnavn. Blokkerer til ferdig kjørt
     subprocess.run(["./adc_sampler", str(MEASUREMENT_FREQUENCY*measurementDuration), toFileName], check=True)
 
-    data = raspi_import(toFileName,2)
-    fft, frequency, maxIndex = myFFT(data)
+    samplePeriod, data = raspi_import(toFileName,2)
+    fft, frequency, maxIndex = myFFT(samplePeriod,data[0]+1j*data[1],1)
 
-    speed = frequency[maxIndex]
+    speed = dopplershiftToSpeed(frequency[maxIndex])
     print("fart: ",speed)
