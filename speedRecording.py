@@ -3,7 +3,8 @@ import numpy as np
 import os
 
 from utilities.raspi_import import raspi_import
-from utilities.findTheta import angleOfAttack,findTheta
+from utilities.doppler import dopplershiftToSpeed
+from utilities.myfft import myFFT
 
 
 # Kode for måling av radar
@@ -52,6 +53,8 @@ while True:
     # Kjør adc_sampler med 10 sekund sampling, og skriv til filnavn. Blokkerer til ferdig kjørt
     subprocess.run(["./adc_sampler", str(MEASUREMENT_FREQUENCY*measurementDuration), toFileName], check=True)
 
+    data = raspi_import(toFileName,2)
+    fft, frequency, maxIndex = myFFT(data)
 
-    theta = findTheta(toFileName)
-    print("theta: ",theta)
+    speed = frequency[maxIndex]
+    print("fart: ",speed)
