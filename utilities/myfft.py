@@ -30,7 +30,7 @@ def myFFT(samplePeriod:int,data:np.ndarray,nKanaler:int) -> tuple[np.ndarray, np
 
     frequencyAxis = np.arange(fftLength)/fftLength * (1/samplePeriod)
 
-    maxIndex = []
+    maxIndex = [0]
     # For å finne indeks med høyest verdi
     if nKanaler == 1:
         maxIndex[0] = np.argmax(np.abs(completedFFT))
