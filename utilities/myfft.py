@@ -19,10 +19,12 @@ def myFFT(samplePeriod:int,data:np.ndarray,nKanaler:int) -> tuple[np.ndarray, np
     fftLength = numSamples
 
     completedFFT = []
-
-    for n in range(nKanaler):
-        nColumnData = data[:, n]
-        completedFFT.append(fft(nColumnData))
+    if nKanaler == 1:
+        completedFFT = fft(data)
+    else:
+        for n in range(nKanaler):
+            nColumnData = data[:, n]
+            completedFFT.append(fft(nColumnData))
 
     completedFFT = np.array(completedFFT).T
 
@@ -30,10 +32,13 @@ def myFFT(samplePeriod:int,data:np.ndarray,nKanaler:int) -> tuple[np.ndarray, np
 
     maxIndex = []
     # For å finne indeks med høyest verdi
-    for n in range(len(completedFFT)):
-        maxIndex[n] = np.argmax(np.abs(completedFFT[n]))
+    if nKanaler == 1:
+        maxIndex[0] = np.argmax(np.abs(completedFFT))
+    else:
+        for n in range(len(completedFFT)):
+            maxIndex.append(np.argmax(np.abs(completedFFT[n])))
 
-    maxIndex = np.array(maxIndex).T
+    maxIndex = np.array(maxIndex)
 
     print("Indeks for maksverdi:")
     for index in maxIndex:
