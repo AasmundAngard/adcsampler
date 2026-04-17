@@ -1,5 +1,3 @@
-import numpy as np
-
 
 def speedToDopplershift(vr:float,f0,c=3e8) -> float:
     # fD = 2*vr*f0 / c
