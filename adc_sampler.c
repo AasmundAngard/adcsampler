@@ -34,14 +34,14 @@ channel ADC without need for any input to initiate sampling.
 #include <math.h>
 #include <time.h>
 /////// USER SHOULD MAKE SURE THESE DEFINES CORRESPOND TO THEIR SETUP ///////
-#define ADCS 3      // Number of connected MCP3201.
+#define ADCS 2      // Number of connected MCP3201.
 
 #define OUTPUT_DATA argv[2] // path and filename to dump buffered ADC data
 
 /* RPi PIN ASSIGNMENTS */
 #define MISO1 25    // ADC 1 MISO (GPIO pin number)
 #define MISO2 26    // ADC 2 MISO (GPIO pin number)
-#define MISO3 27    // ADC 3 MISO (GPIO pin number)
+// #define MISO3 27    // ADC 3 MISO (GPIO pin number)
 //#define MISO4 24    // ADC 4 MISO (GPIO pin number)
 //#define MISO5 25    // ADC 5 MISO (GPIO pin number)
 
