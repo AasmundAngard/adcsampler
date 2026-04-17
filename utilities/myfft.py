@@ -2,10 +2,10 @@ import numpy as np
 from raspi_import import raspi_import
 from scipy.fft import fft
 
-sample_period,data = raspi_import("målinger/speed1-1.bin",2)
+# sample_period,data = raspi_import("målinger/speed1-1.bin",2)
 
 
-fft = fft(data)
+# fft = fft(data)
 
 
 
