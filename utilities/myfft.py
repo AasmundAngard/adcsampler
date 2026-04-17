@@ -18,18 +18,22 @@ def myFFT(samplePeriod:int,data:np.ndarray,nKanaler:int) -> tuple[np.ndarray, np
     numSamples = data.shape[0]
     fftLength = numSamples
 
-    completedFFT = np.ndarray()
+    completedFFT = []
+
     for n in range(nKanaler):
-        nColumnData = data[:,n]
-        completedFFT = np.append(completedFFT,fft(nColumnData))
+        nColumnData = data[:, n]
+        completedFFT.append(fft(nColumnData))
+
+    completedFFT = np.array(completedFFT).T
 
     frequencyAxis = np.arange(fftLength)/fftLength * (1/samplePeriod)
 
-    maxIndex = np.ndarray()
+    maxIndex = []
     # For å finne indeks med høyest verdi
     for n in range(len(completedFFT)):
         maxIndex[n] = np.argmax(np.abs(completedFFT[n]))
 
+    maxIndex = np.array(maxIndex).T
 
     print("Indeks for maksverdi:")
     for index in maxIndex:
