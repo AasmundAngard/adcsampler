@@ -56,5 +56,5 @@ while True:
     samplePeriod, data = raspi_import(toFileName,2)
     fft, frequency, maxIndex = myFFT(samplePeriod,data[0]+1j*data[1],1)
 
-    speed = dopplershiftToSpeed(frequency[maxIndex])
+    speed = dopplershiftToSpeed(frequency[maxIndex], 24.13e9)
     print("fart: ",speed)
