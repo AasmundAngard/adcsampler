@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 def speedToDopplershift(vr:float,f0,c=3e8) -> float:
